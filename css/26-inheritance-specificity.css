@@ -1,4 +1,25 @@
 body {
   font-family: "SUIT";
-  font-weight: 300;
+  font-weight: 700;
+}
+
+.menu {
+  color: gray;
+  font-size: 36px;
+  /* border속성은 상속되지 않는 속성 */
+  border: 5px green dashed;
+}
+/* menu li a 생략할 수 있는 건 생략 */
+/* 가급적 댑스 생략 */
+ul.menu li {
+  background-color: pink;
+}
+/* .menu li 선택자는 pick 선택자보다 힘이 셈 */
+/* .menu li 일 때 노란색이 보이도록 하려면 li.pick ==> 동점일땐 마지막 선언된 css 선택 / 선택자마다 중요도가 다름*/
+li.pick {
+  /* cascade되면서 우선순위가 바뀜  */
+  background-color: yellow;
+}
+.menu a {
+  color: inherit;
 }
