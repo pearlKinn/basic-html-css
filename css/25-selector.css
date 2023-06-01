@@ -3,6 +3,13 @@
   color: inherit;
 }
 
+/* 가상요소 선택자  */
+/* selection은 드래그 했을 때 변화 */
+::selection {
+  background: #373e6a;
+  color: hotpink;
+}
+
 /* 태그 선택자 */
 body {
   font-family: "SUIT";
@@ -21,6 +28,11 @@ body {
   font-weight: bold;
   text-shadow: 4px 4px 3px #77f;
 }
+/* class="fancy align" 멀티 클래스가 가능*/
+.align {
+  text-align: center;
+}
+
 /* ul.menu - <ul> 요소 중에서 class 속성 값이 "menu"인 요소를 선택 
    ul .menu - <ul> 요소 내부에서 class 속성 값이 "menu"인 요소를 선택 */
 ul.menu{
@@ -31,4 +43,44 @@ ul.menu{
 /* 아이디 선택자 - 한 번 밖에 사용 못함 */
 #demo {
   border: red 2px solid;
+}
+
+/* 속성 선택자 */
+/* a[href$=".html"] a태그에서.html로 끝나는 것만 선택 */
+ .menu a[href$=".html"] {
+  background-color: blue;
+}
+
+/* 선택자 목록 */
+.fancy, .menu {
+  font-size: 24px;
+}
+
+/* :가상클래스 선택자 /::가상요소 선택자 */  
+
+/* 가상요소 선택자 컨 + a 로 선택이 안됨  */
+/* align 자식이지만 bf af는 붙여서 써야 만들어짐 */
+.align::before {
+  content: "이전요소"; 
+}
+
+.align::after {
+  content: "다음요소"; 
+}
+
+/* 가상클래스 */
+/* 구조선택자 */
+/* html 에서는 0부터 시작 css 에서는 1부터 시작.. */
+/* 1,2,7,8 선택 / odd 홀수만 선택 */
+.menu li:nth-child(-n+2),
+.menu li:nth-child(n+7) {
+  color: yellow;
+}
+
+.menu a:hover {
+  border: 5px solid blue;
+}
+
+h1.menu:hover {
+  background-color: pink;
 }
